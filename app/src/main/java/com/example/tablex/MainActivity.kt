@@ -20,13 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.seekbaar.max=20
         binding.seekbaar.min=1
-        val table=ArrayList<String>()
-        for (i in 1..10){
-            table.add("1 X $i = ${i*1}")
-        }
-        binding.text.text="Table of 1"
-        val adapter=ArrayAdapter(this, R.layout.simple_list_item_1,table)
-        binding.table.adapter=adapter
+        fetchTable(1)
         binding.seekbaar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if(fromUser){
